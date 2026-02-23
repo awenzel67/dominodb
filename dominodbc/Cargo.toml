@@ -1,0 +1,14 @@
+[package]
+name = "dominodbc"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+name = "dominodbc"
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[dependencies]
+deno_core = "0.384.0"
+dominodb = { path = "../dominodb" }
+global_var = "0.1.0"

@@ -1,0 +1,10 @@
+[package]
+name = "dominocli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+deno_core = "0.385.0"
+deno_error = "0.7.3"
+dominodb = { path = "../dominodb" }
+lazy_static = "1.5.0"
