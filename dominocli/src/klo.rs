@@ -124,7 +124,7 @@ function get_entity_data_function(rootBucket,index)
     return Deno.core.ops.op_get_object_from_bucket(rootBucket,index);
 }
 let ep0=get_entity_data_function("employees",0);
-print(JSON.stringify(ep0));
+print(JSON.stringify(ep0.profile));
 "#;
 runtime.execute_script("<testquery>",sc4).unwrap();
 
@@ -151,7 +151,7 @@ runtime.execute_script("<testindex>",sc5).unwrap();
 let sc6=r#"
 print("*******************************")
 
-let olo=data.employees[0].name;
+let olo=data.employees[0].profile.contact.email;
 print(olo);
 "#;
 runtime.execute_script("<testindex>",sc6).unwrap();

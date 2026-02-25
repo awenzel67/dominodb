@@ -9,12 +9,15 @@ use std::cell::RefCell;
 
 
 #[unsafe(no_mangle)]
-pub extern "C" fn domino_load_data(filepath_datao: *const c_char) -> i32 {
-        let mut runtime=init_dominodb(); 
-        let filepath_data =  unsafe{ CStr::from_ptr(filepath_datao)};
-        let filepath_data = filepath_data.to_str().expect("Unicode conversion failed.");
-        let filepath_data=filepath_data.to_string();
-        load_data_op(&mut runtime, &filepath_data);
+pub extern "C" fn domino_load_data(filepath_data: *const c_char,filepath_schema: *const c_char) -> i32 { 
+        let filepath_data_rust =  unsafe{ CStr::from_ptr(filepath_data)};
+        let filepath_data_rust = filepath_data_rust.to_str().expect("Unicode conversion failed.");
+        let filepath_data_rust=filepath_data_rust.to_string();
+
+        let filepath_schema_rust =  unsafe{ CStr::from_ptr(filepath_schema)};
+        let filepath_schema_rust = filepath_schema_rust.to_str().expect("Unicode conversion failed.");
+        let filepath_schema_rust=filepath_schema_rust.to_string();
+        load_data(&filepath_data_rust,&filepath_schema_rust);
     0
 }
 
@@ -30,9 +33,7 @@ pub extern "C" fn domino_query(queryo: *const c_char,buffer: *mut c_char, nbuffe
 
     }
 
-    let mut runtime=init_dominodb(); 
-    reload_data_op(&mut runtime);
-       
+    let mut runtime=init_dominodb();    
     let res= query(&mut runtime, query_string);
     match res {
             Ok(json) => {

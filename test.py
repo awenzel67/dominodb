@@ -3,9 +3,10 @@ import json
 import pprint
 def query_data_javascript_qj():
     libObject = ctypes.WinDLL('./target/debug/dominodbc.dll')
-    cdata = ctypes.c_char_p(b"C:/NHKI/domy/data/500_KB_V2.json")
+    cdata = ctypes.c_char_p(b"C:/NHKI/data/talktodata/500 KB_V2.json")
+    cschema=ctypes.c_char_p(b"C:/NHKI/data/talktodata/employeeSchemaDescription_V2.json")
 
-    res=libObject.domino_load_data(cdata)
+    res=libObject.domino_load_data(cdata,cschema)
 
     with open("C:/NHKI/domy/query.txt", "r", encoding="utf-8") as file:
         content = file.read()
