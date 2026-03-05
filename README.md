@@ -16,10 +16,9 @@ For installation of git see [here](https://git-scm.com/install/windows)
 
 ### Installation
 
-
 Clone the repository:
 
-git clone 
+git clone https://github.com/awenzel67/dominodb.git
 
 Change working directory:
 cd dominodb
@@ -30,6 +29,10 @@ cargo build
 Run the cli interface:
 cargo run --database test.json --schema test_schema.json "data.employess.length"
 
+
+## cli
+
+## C API
 
 
 
