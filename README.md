@@ -17,18 +17,23 @@ For installation of git see [here](https://git-scm.com/install/windows)
 ### Installation
 
 Clone the repository:
-
+```
 git clone https://github.com/awenzel67/dominodb.git
-
+```
 Change working directory:
+```
 cd dominodb
+```
 
-Build the project:
+Build the project: 
+```
 cargo build
+```
 
 Run the cli interface:
+```
 cargo run --database test.json --schema test_schema.json "data.employess.length"
-
+```
 ## cli
 
 The build process creates the executable: 
@@ -36,11 +41,11 @@ The build process creates the executable:
 * Linux: domino-cli
 
 It can be used to query a json data object in a file.
-
+```
 domino-cli --database --schema "query"
-
---database path to the file containing the json object
---schema path to the file containing the schema.
+```
+--database path to the file containing the json object.\
+--schema path to the file containing the schema.\
 "query" javascript snippet to query the json object. By convention the result is saved in variable result.
 
 The output on the terminal shows the result as json.
